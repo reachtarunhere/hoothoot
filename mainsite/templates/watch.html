@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block page_block %}
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h3 style="color: black;"><b>{{ display_video.title }}</b></h3>               
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 himg">
+                    <div class="videoWrapper">
+                        <iframe width="640" height="390" src="{{ display_video.embed_link }}?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" id="rowfix">
+            <div class="col-md-8" id="hack">
+            
+            <a href="whatsapp://send" data-text="{{ display_video.title }}" data-href="http://hoothoot.in/watch/{{ display_video.id }}" class="wa_btn wa_btn_l" style="display:none; height:15px;">Share</a><br>
+            <a href='https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ display_video.id }}/' onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ display_video.id }}/', 'newwindow', 'width=500, height=250'); return false;"><img src="/static/fb.png" alt="Popular Post"></a><br>
+                            <p><a href="/watch/{{ first_latest.id }}/"></a>
+                {% autoescape off %}{{ display_video.description }}{% endautoescape %}<br>
+                <div class="fb-comments" data-href="http://hoothoot.in/watch/{{ display_video.id }}/" data-width="720" data-numposts="5" data-colorscheme="light"></div>
+                <div class="adsoptimal-slot" style="width: 728px; height: 90px;"></div>
+            </div>
+            <div class="col-md-4" id="hack">
+            <div class="fb-like-box" data-href="https://www.facebook.com/hoothoot.in" data-width="360" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>            
+                <h4>Similar Content</h4>
+                <div class="hline"></div>
+                    <ul class="popular-posts">
+                     {% for x in related_videos %}
+                        <li>
+                            <a href="/watch/{{ x.id }}/"><img src="{{ x.thumb_link }}" alt="Popular Post"></a>
+                            <p><a href="/watch/{{ x.id }}/">{{ x.title }}</a></p>
+<!--                             <em>Posted on 02/21/14</em> -->
+                        </li>
+                     {% endfor %}
+                    </ul>
+                    
+
+                </div>
+            </div>
+        </div>
+<div class="container">
+    <div class="row" style="margin-top: 10px;">
+    <h3>Hot & Trending</h3>
+    {% for x in hot_videos_list1 %}
+    <a href="/watch/{{ x.id }}/">
+        <div class="col-md-4" id="nopad">
+            <div class="moreimagebox">
+                <img src="{{ x.image_link }}" alt=""/>
+                <div class="morecaption">
+                    <h5 class="morecaptionh4">{{ x.title }}</h5>
+                </div>  
+
+            </div>      
+        </div>
+    </a>
+    {% endfor %}
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+    {% for x in hot_videos_list2 %}
+    <a href="/watch/{{ x.id }}/">
+        <div class="col-md-4" id="nopad">
+            <div class="moreimagebox">
+                <img src="{{ x.image_link }}" alt=""/>
+                <div class="morecaption">
+                    <h5 class="morecaptionh4">{{ x.title }}</h5>
+                </div>  
+
+            </div>      
+        </div>
+    </a>
+    {% endfor %}
+    </div>
+</div> 
+{% endblock %}

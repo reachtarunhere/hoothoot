@@ -1,0 +1,27 @@
+<html><head><title>Books</title></head>
+
+<body>
+
+<h1>Books</h1>
+<h2>Viewing All Entries</h2>
+{% for x in handpicked_videos %}
+<h2> {{x.number}} </h2>
+{% endfor %}
+
+<div class="endless_page_template">
+    {% include page_template %}
+</div>
+
+{% block js %}
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<script src="{{ STATIC_URL }}js/endless_on_scroll.js"></script>
+<script src="{{ STATIC_URL }}js/endless-pagination.js"></script>    
+<script>
+    $.endlessPaginate({paginateOnScroll: true,
+    endless_on_scroll_margin : 10,
+    paginateOnScrollChunkSize: 5        
+});</script>
+{% endblock %}
+
+
+</body></html>

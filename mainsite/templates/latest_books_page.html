@@ -1,0 +1,6 @@
+{% load endless %}
+{% paginate 10 book_list %}
+{% for book in book_list %}
+{{ book.matter }}<br><br><br>
+{% endfor %}
+{% show_more "even more" "working" %}

@@ -1,0 +1,17 @@
+{% load endless %}
+{% paginate 5 video_list %}
+{% for video in video_list %}
+
+
+		 		<a href="/watch/{{ video.id }}/"><h3>{{ video.title }}</h3></a>
+			 	<div class="videoWrapper">
+				 	<iframe width="320" height="195" src="{{ video.embed_link }}?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<br>
+				            <a href='https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ video.id }}/' onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ video.id }}/', 'newwindow', 'width=500, height=250'); return false;"><img src="/static/fb.png" alt="Popular Post"></a><br>
+		 		<br>
+                {% autoescape off %}{{ video.description }}{% endautoescape %}
+                <br>
+
+{% endfor %}
+{% show_more "More" "Loading" %}

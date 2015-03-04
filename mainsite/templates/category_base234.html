@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://hoothootserve.appspot.com/ico/favicon.ico">
+
+    <title>Hoot Hoot - Fun. Laughs. Sentiyapa.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://hoothootserve.appspot.com/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://hoothootserve.appspot.com/css/style.css" rel="stylesheet">
+    <link href="http://hoothootserve.appspot.com/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script src="http://hoothootserve.appspot.com/js/modernizr.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">HOOT HOOT</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">HOME</a></li>
+            <li><a href="about.html">HOT</a></li>
+            <li><a href="contact.html">LATEST</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">CATEGORY<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="blog.html">SPORTS</a></li>
+                <li><a href="single-post.html">LIFE</a></li>
+                <li><a href="portfolio.html">LOL</a></li>
+                <li><a href="single-project.html">SHOCKING!</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3>{{ category_selected }}</h3>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
+
+	 
+	<!-- *****************************************************************************************************************
+	 BLOG CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container mtb">
+	 	<div class="row">
+	 	
+
+	 		<div class="col-lg-8">
+				<div class="endless_page_template">
+				    {% include page_template %}
+				</div>
+
+				{% block js %}
+				<script src="http://code.jquery.com/jquery-latest.js"></script> 
+				<script src="{{ STATIC_URL }}js/endless_on_scroll.js"></script>
+				<script src="{{ STATIC_URL }}js/endless-pagination.js"></script>    
+				<script>
+				    $.endlessPaginate({paginateOnScroll: true,
+				    endless_on_scroll_margin : 10,
+				    paginateOnScrollChunkSize: 5        
+				});</script>
+				{% endblock %}
+
+			</div>
+	 		
+	 		
+
+	 		<div class="col-lg-4"> 		
+		 		<h4>Trending</h4>
+		 		<div class="hline"></div>
+					<ul class="popular-posts">
+		                <li>
+		                    <a href="#"><img src="http://hoothootserve.appspot.com/img/thumb01.jpg" alt="Popular Post"></a>
+		                    <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
+		                    <em>Posted on 02/21/14</em>
+		                </li>
+		                <li>
+		                    <a href="#"><img src="http://hoothootserve.appspot.com/img/thumb02.jpg" alt="Popular Post"></a>
+		                    <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
+		                    <em>Posted on 03/01/14</em>
+		                <li>
+		                    <a href="#"><img src="http://hoothootserve.appspot.com/img/thumb03.jpg" alt="Popular Post"></a>
+		                    <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
+		                    <em>Posted on 05/16/14</em>
+		                </li>
+		                <li>
+		                    <a href="#"><img src="http://hoothootserve.appspot.com/img/thumb04.jpg" alt="Popular Post"></a>
+		                    <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
+		                    <em>Posted on 05/16/14</em>
+		                </li>
+		            </ul>
+		            
+<!-- 		 		<div class="spacing"></div>
+		 		
+		 		<h4>Popular Tags</h4>
+		 		<div class="hline"></div>
+		 			<p>
+		            	<a class="btn btn-theme" href="#" role="button">Design</a>
+		            	<a class="btn btn-theme" href="#" role="button">Wordpress</a>
+		            	<a class="btn btn-theme" href="#" role="button">Flat</a>
+		            	<a class="btn btn-theme" href="#" role="button">Modern</a>
+		            	<a class="btn btn-theme" href="#" role="button">Wallpaper</a>
+		            	<a class="btn btn-theme" href="#" role="button">HTML5</a>
+		            	<a class="btn btn-theme" href="#" role="button">Pre-processor</a>
+		            	<a class="btn btn-theme" href="#" role="button">Developer</a>
+		            	<a class="btn btn-theme" href="#" role="button">Windows</a>
+		            	<a class="btn btn-theme" href="#" role="button">Phothosop</a>
+		            	<a class="btn btn-theme" href="#" role="button">UX</a>
+		            	<a class="btn btn-theme" href="#" role="button">Interface</a>		            	
+		            	<a class="btn btn-theme" href="#" role="button">UI</a>		            	
+		            	<a class="btn btn-theme" href="#" role="button">Blog</a>		            	
+		 			</p>
+	 		</div>
+	 	</div> -->
+	 </div>
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-6">
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+		 		</div>
+		 		<div class="col-lg-6">
+		 			<h4>Social Links</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="#"><i class="fa fa-dribbble"></i></a>
+		 				<a href="#"><i class="fa fa-facebook"></i></a>
+		 				<a href="#"><i class="fa fa-twitter"></i></a>
+		 				<a href="#"><i class="fa fa-instagram"></i></a>
+		 				<a href="#"><i class="fa fa-tumblr"></i></a>
+		 			</p>
+		 		</div>
+		 	
+		 	</div>
+	 	</div>
+	 </div>
+	 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://hoothootserve.appspot.com/js/bootstrap.min.js"></script>
+	<script src="http://hoothootserve.appspot.com/js/retina-1.1.0.js"></script>
+	<script src="http://hoothootserve.appspot.com/js/jquery.hoverdir.js"></script>
+	<script src="http://hoothootserve.appspot.com/js/jquery.hoverex.min.js"></script>
+	<script src="http://hoothootserve.appspot.com/js/jquery.prettyPhoto.js"></script>
+  	<script src="http://hoothootserve.appspot.com/js/jquery.isotope.min.js"></script>
+  	<script src="http://hoothootserve.appspot.com/js/custom.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block page_block %}
+	 <div class="container">
+	 	<div class="row" id="rowfix">
+		 	<div class="col-md-6 col-md-offset-1" id="hack1">
+		 	{% for x in handpicked_videos %}
+		 		<a href="/watch/{{ x.id }}/"><h3>{{ x.title }}</h3></a>
+			 	<div class="videoWrapper">
+				 	<iframe width="320" height="195" src="{{ x.embed_link }}?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<br>
+				            <a href='https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ x.id }}/' onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://hoothoot.in/watch/{{ x.id }}/', 'newwindow', 'width=500, height=250'); return false;"><img src="/static/fb.png" alt="Popular Post"></a><br>
+		 		<br>
+                {% autoescape off %}{{ x.description }}{% endautoescape %}
+                <br>
+		 	{% endfor %}
+		 	</div>
+		 	
+		  	<div class="col-md-4" id="hack1"><br><br>
+		  	<div class="fb-like-box" data-href="https://www.facebook.com/hoothoot.in" data-width="360px" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>		 		
+		 		<h4>The Latest Buzz</h4> <br>
+		 		<div class="hline"></div>
+					<ul class="popular-posts">
+		                <li>
+		                    <a href="/watch/{{ first_latest.id }}/"><img src="{{ first_latest.image_link }}" alt="Popular Post"></a>
+		                    <p><a href="/watch/{{ first_latest.id }}/">{{ first_latest.title }}</p>
+<!-- 		                    <em>Posted on 02/21/14</em> -->
+		                </li>
+		         {% for x in latest_videos_list %}
+		                <li>
+		                    <a href="/watch/{{ x.id }}/"><img src="{{ x.thumb_link }}" alt="Popular Post"></a>
+		                    <p><a href="/watch/{{ x.id }}/">{{ x.title }}</a></p>
+		             <!--        <em>Posted on 03/01/14</em> -->
+		       	 {% endfor %}
+		            </ul>
+		            
+	 		</div>
+	 	</div><!--/row -->
+	 </div><!--/container -->
+	 	</div>
+	 </div>
+
+
+<div class="container">
+<div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+	<h3> Hot & Trending </h3>
+    {% for x in hot_videos_list %}
+    <a href="/watch/{{ x.id }}/">
+	<div class="col-md-4" id="nopad">
+		<div class="moreimagebox">
+			<img src="{{ x.image_link }}" alt="" />
+	      	<div class="morecaption">
+				<h5 class="morecaptionh4">{{ x.title }}</h5>
+			</div>	
+		</div>		
+	</div>
+	</a>	
+	{% endfor %}	
+</div>
+</div>
+{% endblock %}
